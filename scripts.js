@@ -1,4 +1,4 @@
-let tasks  = [
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [
     {id: 1, title: "Написать Unit тесты", completed: false},
     {id: 2, title: "Деплой на staging", completed: true},
     {id: 3, title: "Исправить баги", completed: false},
@@ -13,10 +13,16 @@ function updateTaskArray(){
     updateListTodo();
 }
 
+// сохраняем список локально
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
 // функция удаления строки из массива по id и обновления списка
 function deletTaremoveTask(tasks, id){
     tasks.splice(id, 1);
     updateTaskArray();
+    saveTasks();
 }
 
 // функция изменения completed по id и обновления списка
@@ -28,6 +34,7 @@ function toggleTask(tasks, id){
     }
 
     updateTaskArray();
+    saveTasks();
 }
 
 // фугкция вывода списка в консоле разработчика и обновления его при изминении
@@ -77,10 +84,10 @@ const updateListTodo = () => {
 
 // добавление новой записи
 function addTaskFunc (){
+    let title = document.getElementById('todo-input__text').value;
+
     // проверка нет ли пустого input
     if (!title.trim()) return;
-
-    let title = document.getElementById('todo-input__text').value;
 
     const addTask = (id, tasks, title) => {
         tasks.push({id: id, title: title, completed: false});
@@ -88,6 +95,7 @@ function addTaskFunc (){
     }
 
     addTask(nextId++, tasks, title);
+    saveTasks();
     document.getElementById('todo-input__text').value = "";
 }
 
