@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="./style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="todo-wrapper">
+            <div class="todo-title">
+                <h1 class="todo-title__text">
+                    Список задач To-Do:
+                </h1>
+            </div>
+            <div class="todo-input">
+                <input
+                    type="text"
+                    class="todo-input__text"
+                    id="todo-input__text"
+                >
+                <button
+                    class="todo-input__btn"
+                    onclick="addTaskFunc()"
+                >
+                    +
+                </button>
+            </div>
+
+            <div class="todo-list-wrapper">
+
+            </div>
+        </div>
+
+        <a class="link-to-github" href="https://github.com/Khlystikam/corp-portal" target="blanck_">
+            Ссылка на код в github
+        </a>
+    </div>
+
+    <script src="./scripts.js"></script>
+</body>
+</html>
